@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from './slices/authSlice';
-import smsReducer from "./slices/smsSlice";
+import dashboardReducer from "./slices/dashboardSlice";
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    sms: smsReducer,
+    dashboard: dashboardReducer,
   },
 });
 

@@ -3,7 +3,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 // import Layout from './components/Layout';
 import Dashboard from './components/Dashboard';
-import SendSMS from './components/SendSMS';
+// import SendSMS from './components/SendSMS';
 // import Profile from './components/Profile';
 // import Home from './components/Home';
 import Login from './components/Login';
@@ -25,7 +25,7 @@ export default function App() {
           >
             <Route index element={<Dashboard />} />
             {/* <Route path="home" element={<Home />} /> */}
-            <Route path="send-sms" element={<SendSMS />} />
+            {/* <Route path="send-sms" element={<SendSMS />} /> */}
             {/* <Route path="profile" element={<Profile />} /> */}
           </Route>
         </Routes>

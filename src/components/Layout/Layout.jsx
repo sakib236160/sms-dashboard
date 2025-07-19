@@ -53,7 +53,7 @@ export default function Layout() {
               </Link>
             </li>
             {/* --------------Send SMS--------------- */}
-            <li className="mb-2">
+            {/* <li className="mb-2">
               <Link
                 to="/send-sms"
                 className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors"
@@ -61,7 +61,7 @@ export default function Layout() {
                 <FaShoppingCart className="text-lg" />
                 Send SMS
               </Link>
-            </li>
+            </li> */}
             {/* ------------ Profile ------------- */}
             <li className="mb-2">
               <Link

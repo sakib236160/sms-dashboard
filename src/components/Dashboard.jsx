@@ -1,49 +1,88 @@
-export default function Dashboard() {
-  return (
-    <div>
-      <h2 className="text-2xl font-semibold text-gray-800 mb-6">Dashboard</h2>
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSMSInfo } from "../redux/slices/dashboardSlice";
+import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-      {/* Sales Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-gradient-to-br from-indigo-500 to-purple-500 text-white rounded-lg p-6 shadow-md">
-          <h3 className="text-lg font-semibold mb-2">Weekly Sales</h3>
-          <p className="text-3xl font-bold mb-1">$ 500,000</p>
-          <p className="text-sm opacity-90">Increase by 30%</p>
+const Dashboard = () => {
+  const dispatch = useDispatch();
+  const { smsCount, balance, loading, error } = useSelector((state) => state.dashboard);
+
+  useEffect(() => {
+    dispatch(fetchSMSInfo());
+  }, [dispatch]);
+
+  const pieData = [
+    { name: "SMS Count", value: smsCount },
+    { name: "Balance", value: balance }
+  ];
+
+  const COLORS = ["#8884d8", "#82ca9d"];
+
+  const barData = [
+    { name: 'SMS Count', value: smsCount },
+    { name: 'Balance', value: balance }
+  ];
+
+  return (
+    <div className="p-4">
+      <h2 className="text-xl font-bold mb-4">Dashboard</h2>
+
+      {loading && <p>Loading...</p>}
+      {error && <p className="text-red-500">{error}</p>}
+
+      <div className="grid grid-cols-2 gap-4">
+        <div className="bg-white shadow-md p-4 rounded">
+          <h3 className="text-md font-semibold">SMS Count</h3>
+          <p>{smsCount}</p>
         </div>
-        <div className="bg-gradient-to-br from-indigo-500 to-purple-500 text-white rounded-lg p-6 shadow-md">
-          <h3 className="text-lg font-semibold mb-2">Monthly Sales</h3>
-          <p className="text-3xl font-bold mb-1">$ 2,000,000</p>
-          <p className="text-sm opacity-90">Increase by 20%</p>
-        </div>
-        <div className="bg-gradient-to-br from-indigo-500 to-purple-500 text-white rounded-lg p-6 shadow-md">
-          <h3 className="text-lg font-semibold mb-2">Yearly Sales</h3>
-          <p className="text-3xl font-bold mb-1">$ 20,000,000</p>
-          <p className="text-sm opacity-90">Increase by 10%</p>
+
+        <div className="bg-white shadow-md p-4 rounded">
+          <h3 className="text-md font-semibold">Balance</h3>
+          <p>$ {balance}</p>
         </div>
       </div>
 
-      {/* Chart Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-lg p-6 shadow-md">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Sales Trends</h3>
-          <div className="h-40 bg-gray-200 rounded-md flex items-center justify-center text-gray-500">
-            {/* এখানে তুমি Chart লাইব্রেরি দিয়ে চার্ট লাগাতে পারো */}
-            Chart Placeholder
-          </div>
+      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Pie Chart */}
+        <div className="bg-white shadow-md p-4 rounded">
+          <h3 className="text-md font-semibold mb-2">Pie Chart</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                data={pieData}
+                cx="50%"
+                cy="50%"
+                labelLine={false}
+                outerRadius={100}
+                fill="#8884d8"
+                dataKey="value"
+                label={({ name, value }) => `${name}: ${value}`}
+              >
+                {pieData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip />
+            </PieChart>
+          </ResponsiveContainer>
         </div>
-        <div className="bg-white rounded-lg p-6 shadow-md">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">User Activity</h3>
-          <div className="h-40 bg-gray-200 rounded-md flex items-center justify-center text-gray-500">
-            Chart Placeholder
-          </div>
-        </div>
-        <div className="bg-white rounded-lg p-6 shadow-md">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Revenue Growth</h3>
-          <div className="h-40 bg-gray-200 rounded-md flex items-center justify-center text-gray-500">
-            Chart Placeholder
-          </div>
+
+        {/* Bar Chart */}
+        <div className="bg-white shadow-md p-4 rounded">
+          <h3 className="text-md font-semibold mb-2">Bar Chart</h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={barData}>
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="value" fill="#8884d8" />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default Dashboard;
