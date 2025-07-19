@@ -65,7 +65,7 @@ export default function Dashboard() {
                                 </div>
                                 <FaAngleDown className="text-xs" />
                             </a>
-                            {/* Profile Sub-menu - আপনি চাইলে এখানে একটি ড্রপডাউন যোগ করতে পারেন */}
+                            {/* Profile Sub-menu - You can add a dropdown here if you want */}
                         </li>
                     </ul>
                 </nav>

@@ -1,69 +1,63 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import api from '../../services/api';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+
+const API_URL = 'http://52.74.26.144:8008';
+
+const initialState = {
+  token: localStorage.getItem('token') || null,
+  loading: false,
+  error: null,
+};
 
 // Async thunk for login
 export const login = createAsyncThunk(
   'auth/login',
-  async ({ username, password }) => {
-    const formData = new FormData();
-    formData.append('username', username);
-    formData.append('password', password);
+  async ({ username, password }, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${API_URL}/auth/login/`, {
+        username,
+        password,
+      });
 
-    const response = await api.post('/auth/login/', formData);
-    return response.data; 
-  }
-);
-
-// Async thunk for logout
-export const logout = createAsyncThunk(
-  'auth/logout',
-  async (_, { getState }) => {
-    const token = getState().auth.token;
-    if (!token) throw new Error('No token found');
-
-    await api.post(
-      '/auth/logout/',
-      {},
-      { headers: { Authorization: `Token ${token}` } }
-    );
-    // logout success, 
+      const token = response.data.token;
+      localStorage.setItem('token', token);
+      return token;
+    } catch (err) {
+      toast.error('Login failed: ' + (err.response?.data?.detail || err.message));
+      return rejectWithValue(err.response?.data);
+    }
   }
 );
 
 const authSlice = createSlice({
   name: 'auth',
-  initialState: {
-    token: localStorage.getItem('token') || null,
-    status: 'idle',
-    error: null,
-  },
+  initialState,
   reducers: {
-    clearToken(state) {
+    logout: (state) => {
+      state.token = null;
+      localStorage.removeItem('token');
+    },
+    clearToken: (state) => {
       state.token = null;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(login.pending, (state) => {
-        state.status = 'loading';
+        state.loading = true;
         state.error = null;
       })
       .addCase(login.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.token = action.payload.token;
-        localStorage.setItem('token', action.payload.token);
+        state.loading = false;
+        state.token = action.payload;
       })
       .addCase(login.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.error.message;
-      })
-      .addCase(logout.fulfilled, (state) => {
-        state.token = null;
-        localStorage.removeItem('token');
+        state.loading = false;
+        state.error = action.payload;
       });
   },
 });
 
-export const { clearToken } = authSlice.actions;
-
+export const { logout, clearToken } = authSlice.actions;
 export default authSlice.reducer;
