@@ -1,14 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './components/Login';
-import Dashboard from './components/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
+// import Layout from './components/Layout';
+import Dashboard from './components/Dashboard';
+import SendSMS from './components/SendSMS';
+// import Profile from './components/Profile';
+// import Home from './components/Home';
+import Login from './components/Login';
+import Layout from './components/Layout/Layout';
 
 export default function App() {
   return (
     <>
-      <ToastContainer position="top-center" autoClose={3000} />
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
@@ -16,10 +19,15 @@ export default function App() {
             path="/"
             element={
               <ProtectedRoute>
-                <Dashboard />
+                <Layout />
               </ProtectedRoute>
             }
-          />
+          >
+            <Route index element={<Dashboard />} />
+            {/* <Route path="home" element={<Home />} /> */}
+            <Route path="send-sms" element={<SendSMS />} />
+            {/* <Route path="profile" element={<Profile />} /> */}
+          </Route>
         </Routes>
       </Router>
     </>

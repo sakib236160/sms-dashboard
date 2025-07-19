@@ -125,7 +125,7 @@ export default function Login() {
     e.preventDefault();
     localStorage.clear();
     if (!username || !password) {
-      toast.warning('Username এবং Password দিন');
+      toast.warning('Enter Username and Password');
       return;
     }
 
