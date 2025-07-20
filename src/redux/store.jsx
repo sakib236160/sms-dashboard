@@ -4,7 +4,7 @@ import dashboardReducer from "./slices/dashboardSlice";
 import clientReducer from './slices/clientSlice';
 
 
-export const store = configureStore({
+export const Store = configureStore({
   reducer: {
     auth: authReducer,
     dashboard: dashboardReducer,
