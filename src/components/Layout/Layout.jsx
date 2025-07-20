@@ -9,6 +9,7 @@ import {
   FaShoppingCart,
   FaBell,
   FaAngleDown,
+  FaUsers,
 } from "react-icons/fa";
 import { IoSpeedometerOutline } from "react-icons/io5";
 import { clearToken, logout } from "../../redux/slices/authSlice";
@@ -43,9 +44,14 @@ export default function Layout() {
       icon: <FaHome className="text-lg" />,
     },
     {
+      to: "/manageClient",
+      label: "ManageClient",
+      icon: <FaUsers className="text-lg" />,
+    },
+    {
       to: "/client",
       label: "ClientList",
-      icon: <FaHome className="text-lg" />,
+      icon: <FaUsers className="text-lg" />,
     },
     {
       to: "/profile",

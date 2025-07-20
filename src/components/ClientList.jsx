@@ -46,7 +46,7 @@ const ClientList = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        Clients Management
+        Clients List
       </motion.h2>
 
       {loading || !showData ? (
