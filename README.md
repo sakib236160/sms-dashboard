@@ -6,13 +6,13 @@ A modern, fully responsive Admin Panel Dashboard built with **React**, **Redux**
 
 ## 🚀 Live Demo
 
-🔗 [Click to View Live](https://your-live-demo-link.com)
+🔗 [Click to View Live]
 
 ---
 
 ## 📁 GitHub Repository
 
-🔗 [View Source Code on GitHub](https://github.com/your-username/admin-dashboard)
+🔗 [View Source Code on GitHub](https://github.com/sakib236160/sms-dashboard)
 
 ---
 
