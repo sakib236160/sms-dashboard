@@ -4,7 +4,7 @@ import { fetchClients } from "../redux/slices/clientSlice";
 import { motion, AnimatePresence } from "framer-motion";
 import { ClockIcon, XCircleIcon } from "@heroicons/react/24/outline";
 
-const ITEMS_PER_PAGE = 5; // Change this to control page size
+const ITEMS_PER_PAGE = 5;
 
 const ClientList = () => {
   const dispatch = useDispatch();
@@ -56,7 +56,9 @@ const ClientList = () => {
           animate={{ opacity: 1 }}
         >
           <ClockIcon className="h-12 w-12 text-indigo-500 animate-spin mb-4" />
-          <p className="text-lg text-gray-600 font-medium">Loading clients data...</p>
+          <p className="text-lg text-gray-600 font-medium">
+            Loading clients data...
+          </p>
         </motion.div>
       ) : error ? (
         <motion.div
@@ -65,7 +67,9 @@ const ClientList = () => {
           animate={{ opacity: 1 }}
         >
           <XCircleIcon className="h-12 w-12 text-red-600 mb-4" />
-          <p className="text-lg text-red-700 font-medium">Error loading data:</p>
+          <p className="text-lg text-red-700 font-medium">
+            Error loading data:
+          </p>
           <p className="text-sm text-red-600">{error.message || error}</p>
           <button
             onClick={() => {
@@ -84,7 +88,9 @@ const ClientList = () => {
           animate={{ opacity: 1 }}
         >
           <p className="text-xl font-medium">No clients found.</p>
-          <p className="text-sm text-gray-500 mt-2">It seems there are no client accounts registered yet.</p>
+          <p className="text-sm text-gray-500 mt-2">
+            It seems there are no client accounts registered yet.
+          </p>
         </motion.div>
       ) : (
         <>
@@ -99,11 +105,21 @@ const ClientList = () => {
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Username</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Email</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Organization</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Balance</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                      ID
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                      Username
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                      Email
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                      Organization
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+                      Balance
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
@@ -113,10 +129,18 @@ const ClientList = () => {
                       variants={itemVariants}
                       className="hover:bg-gray-50 transition"
                     >
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{client.id || "N/A"}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{client.username}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{client.email}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">{client.organization}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {client.id || "N/A"}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                        {client.username}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                        {client.email}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                        {client.organization}
+                      </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-indigo-600">
                         ${(client.balance || 0).toLocaleString()}
                       </td>
@@ -150,7 +174,9 @@ const ClientList = () => {
               </button>
             ))}
             <button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
               disabled={currentPage === totalPages}
               className="px-3 py-1 bg-indigo-500 text-white rounded hover:bg-indigo-600 disabled:bg-gray-300"
             >
@@ -173,17 +199,25 @@ const ClientList = () => {
                   className="bg-white rounded-lg shadow-md p-5 border"
                 >
                   <div className="flex items-center justify-between mb-3 border-b pb-2">
-                    <h3 className="text-lg font-semibold text-gray-900">{client.username}</h3>
-                    <span className="text-sm text-gray-500">ID: {client.id || "N/A"}</span>
+                    <h3 className="text-lg font-semibold text-gray-900">
+                      {client.username}
+                    </h3>
+                    <span className="text-sm text-gray-500">
+                      ID: {client.id || "N/A"}
+                    </span>
                   </div>
                   <div className="text-gray-700 mb-2">
                     <span className="font-medium">Email:</span> {client.email}
                   </div>
                   <div className="text-gray-700 mb-2">
-                    <span className="font-medium">Organization:</span> {client.organization}
+                    <span className="font-medium">Organization:</span>{" "}
+                    {client.organization}
                   </div>
                   <div className="text-gray-900 text-xl font-bold mt-3 pt-3 border-t">
-                    Balance: <span className="text-indigo-600">${(client.balance || 0).toLocaleString()}</span>
+                    Balance:{" "}
+                    <span className="text-indigo-600">
+                      ${(client.balance || 0).toLocaleString()}
+                    </span>
                   </div>
                 </motion.div>
               ))}

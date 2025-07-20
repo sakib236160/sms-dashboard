@@ -1,12 +1,86 @@
-# React + Vite
+# 📊 Admin Panel Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fully responsive Admin Panel Dashboard built with **React**, **Redux**, and **Tailwind CSS**, integrating dynamic data via provided **SMS Gateway APIs**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## Expanding the ESLint configuration
+🔗 [Click to View Live](https://your-live-demo-link.com)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📁 GitHub Repository
+
+🔗 [View Source Code on GitHub](https://github.com/your-username/admin-dashboard)
+
+---
+
+## 🎯 Project Objective
+
+Develop a professional and responsive admin dashboard that:
+- Uses Redux for efficient state management
+- Integrates real-time API data
+- Adapts seamlessly across **desktop**, **tablet**, and **mobile** devices
+
+---
+
+## 📦 Technologies Used
+
+- React.js
+- Redux Toolkit
+- Tailwind CSS
+- Axios
+- React Router DOM
+- Framer Motion (for animation)
+
+---
+
+## 🧩 Features
+
+✅ Login & Logout functionality  
+✅ Role-based routing (Admin Dashboard only)  
+✅ API integration with SMS Gateway  
+✅ Add / Manage Clients  
+✅ SMS Stats & Balance  
+✅ Responsive design for all screen sizes  
+✅ Smooth animations and UI transitions  
+
+---
+
+## 🔑 API Access
+
+- **Base URL:** `http://52.74.26.144:8008`
+- **Login Credentials:**
+  - Username: `parvez`
+  - Password: `P@rvez123`
+
+> Make sure to use the credentials to generate token and access protected routes using Axios with Bearer token authentication.
+
+---
+
+## 📂 Project Structure
+
+---
+
+## 📱 Responsiveness
+
+✅ Desktop — Fully functional layout  
+✅ Tablet — Adjusted layout & navigation  
+✅ Mobile — Collapsible menu, optimized components
+
+---
+
+## 🛠️ How to Run Locally
+
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/your-username/admin-dashboard.git
+
+## Install dependencies
+2. npm install
+
+## Run the app
+3. npm run dev
+
+

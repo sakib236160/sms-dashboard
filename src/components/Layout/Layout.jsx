@@ -10,6 +10,8 @@ import {
   FaBell,
   FaAngleDown,
   FaUsers,
+  FaUserPlus,
+  FaUserCog,
 } from "react-icons/fa";
 import { IoSpeedometerOutline } from "react-icons/io5";
 import { clearToken, logout } from "../../redux/slices/authSlice";
@@ -20,7 +22,7 @@ export default function Layout() {
   const location = useLocation();
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(false); // মোবাইলে sidebar টগল করার জন্য
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -34,11 +36,27 @@ export default function Layout() {
   };
 
   const navLinks = [
-    { to: "/", label: "Dashboard", icon: <IoSpeedometerOutline className="text-xl" /> },
+    {
+      to: "/",
+      label: "Dashboard",
+      icon: <IoSpeedometerOutline className="text-xl" />,
+    },
     { to: "/home", label: "Home", icon: <FaHome className="text-lg" /> },
-    { to: "/addClient", label: "addClient", icon: <FaUsers className="text-lg" /> },
-    { to: "/manageClient", label: "ManageClient", icon: <FaUsers className="text-lg" /> },
-    { to: "/client", label: "ClientList", icon: <FaUsers className="text-lg" /> },
+    {
+      to: "/addClient",
+      label: "AddClient",
+      icon: <FaUserPlus className="text-lg" />,
+    },
+    {
+      to: "/manageClient",
+      label: "ManageClient",
+      icon: <FaUserCog className="text-lg" />,
+    },
+    {
+      to: "/client",
+      label: "ClientList",
+      icon: <FaUsers className="text-lg" />,
+    },
     { to: "/profile", label: "Profile", icon: <FaUser className="text-lg" /> },
   ];
 
@@ -69,7 +87,7 @@ export default function Layout() {
                 <Link
                   key={to}
                   to={to}
-                  onClick={() => setSidebarOpen(false)} // মোবাইলে ক্লিক করলে sidebar বন্ধ হবে
+                  onClick={() => setSidebarOpen(false)}
                   className={`flex items-center gap-3 px-4 py-2 rounded-md transition-colors
                     ${
                       isActive(to)
@@ -91,7 +109,6 @@ export default function Layout() {
         </div>
       </aside>
 
-      {/* মোবাইলে sidebar overlay */}
       {sidebarOpen && (
         <div
           className="fixed inset-0 z-30 bg-black opacity-50 md:hidden"
@@ -104,7 +121,6 @@ export default function Layout() {
         {/* Top Navigation Bar */}
         <header className="bg-white shadow-sm p-4 flex justify-between items-center sticky top-0 z-50">
           <div className="flex items-center gap-4 text-gray-700">
-            {/* মোবাইলে হ্যামবার আইকন দেখাবে, md ও desktop এ লুকাবে */}
             <FaBars
               className="text-xl cursor-pointer md:hidden"
               onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -126,7 +142,7 @@ export default function Layout() {
                 aria-controls="admin-menu"
               >
                 <img
-                  src="https://via.placeholder.com/32"
+                  src="https://i.ibb.co/j9kBrJRb/profile-pic.jpg"
                   alt="Admin Avatar"
                   className="w-8 h-8 rounded-full border-2 border-indigo-300"
                 />

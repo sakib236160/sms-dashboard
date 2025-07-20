@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { FaUserPlus } from 'react-icons/fa';
-import { toast } from 'react-toastify';
-import { motion } from 'framer-motion';
+import React, { useState } from "react";
+import { FaUserPlus } from "react-icons/fa";
+import { toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 const AddClient = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    organization: '',
-    balance: '',
+    username: "",
+    email: "",
+    organization: "",
+    balance: "",
   });
 
   const handleChange = (e) => {
@@ -23,29 +23,29 @@ const AddClient = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch('http://52.74.26.144:8008/client/apiClient/', {
-        method: 'POST',
+      const res = await fetch("http://52.74.26.144:8008/client/apiClient/", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       const data = await res.json();
       if (res.ok) {
-        toast.success('Client added successfully!');
+        toast.success("Client added successfully!");
         setFormData({
-          username: '',
-          email: '',
-          organization: '',
-          balance: '',
+          username: "",
+          email: "",
+          organization: "",
+          balance: "",
         });
       } else {
-        toast.error(data?.message || 'Something went wrong!');
+        toast.error(data?.message || "Something went wrong!");
       }
     } catch (error) {
       console.error(error);
-      toast.error('Failed to add client.');
+      toast.error("Failed to add client.");
     }
   };
 
@@ -99,7 +99,6 @@ const AddClient = () => {
             />
           </div>
         </div>
-
         <div>
           <label className="block mb-1 text-gray-700">Balance</label>
           <input
@@ -126,4 +125,3 @@ const AddClient = () => {
 };
 
 export default AddClient;
-

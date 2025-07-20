@@ -1,11 +1,13 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { FaSms, FaDollarSign, FaUser } from 'react-icons/fa';
-import { fetchSMSInfo } from '../redux/slices/dashboardSlice';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { FaSms, FaDollarSign, FaUser } from "react-icons/fa";
+import { fetchSMSInfo } from "../redux/slices/dashboardSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { smsCount, balance, loading, error } = useSelector((state) => state.dashboard);
+  const { smsCount, balance, loading, error } = useSelector(
+    (state) => state.dashboard
+  );
 
   useEffect(() => {
     dispatch(fetchSMSInfo());
@@ -19,7 +21,9 @@ const Home = () => {
       {/* Banner Section */}
       <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-xl text-white p-6 md:p-10 shadow-lg mb-8">
         <h2 className="text-3xl font-bold mb-2">Welcome Back, Admin!</h2>
-        <p className="text-lg">Here’s your latest account overview at a glance.</p>
+        <p className="text-lg">
+          Here’s your latest account overview at a glance.
+        </p>
       </div>
 
       {/* Loading/Error State */}
