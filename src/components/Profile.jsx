@@ -1,45 +1,40 @@
-import React from 'react';
 import { FaUserCircle } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
-const Profile = () => {
+const ProfileBanner = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen p-8">
-      <div
-        className="flex flex-col items-center p-6 rounded-xl border border-gray-300 shadow-md"
-        style={{ maxWidth: 400, width: '100%' }}
-      >
-        {/* User Icon with bounce animation */}
-        <FaUserCircle
-          className="text-gray-700 bounce"
-          style={{ fontSize: '8rem', filter: 'drop-shadow(0 0 8px rgba(0,0,0,0.2))' }}
-        />
+    <motion.div
+      className="bg-gradient-to-r from-blue-100 to-blue-200 p-6 rounded-xl shadow-md w-full max-w-5xl mx-auto mt-8"
+      initial={{ opacity: 0, y: -30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+    >
+      <div className="flex items-center space-x-6">
+        {/* Profile Icon with bounce animation */}
+        <motion.div
+          animate={{ y: [0, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+        >
+          <FaUserCircle className="text-blue-700" style={{ fontSize: '6rem' }} />
+        </motion.div>
 
-        <h2 className="mt-4 text-3xl font-bold text-gray-900">Profile Details</h2>
+        {/* Text Content */}
+        <div>
+          <h2 className="text-3xl font-semibold text-gray-800">Welcome Back, Admin!</h2>
+          <p className="text-lg text-gray-600 mt-1">
+            Here’s your latest account overview at a glance.
+          </p>
 
-        {/* Static User Info */}
-        <div className="mt-4 text-left text-gray-700 space-y-2 text-lg">
-          <p><strong>Name:</strong> Parvez</p>
-          <p><strong>Role:</strong> Admin</p>
-          <p><strong>Last Login:</strong> 2025-07-20</p>
+          {/* Optional User Info */}
+          <div className="mt-4 text-gray-700 space-y-1">
+            <p><strong>Name:</strong> Parvez</p>
+            <p><strong>Role:</strong> Admin</p>
+            <p><strong>Last Login:</strong> July 20, 2025</p>
+          </div>
         </div>
       </div>
-
-      {/* Custom CSS animation */}
-      <style jsx>{`
-        @keyframes bounce {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-15px);
-          }
-        }
-        .bounce {
-          animation: bounce 2.5s ease-in-out infinite;
-        }
-      `}</style>
-    </div>
+    </motion.div>
   );
 };
 
-export default Profile;
+export default ProfileBanner;

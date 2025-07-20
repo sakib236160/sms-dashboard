@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Layout from './components/Layout/Layout';
 import ClientList from './components/ClientList';
 import ManageClient from './components/ManageClient';
+import AddClient from './components/AddClient';
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
           >
             <Route index element={<Dashboard />} />
             <Route path="home" element={<Home />} />
+            <Route path="addClient" element={<AddClient />} />
             <Route path="manageClient" element={<ManageClient />} />
             <Route path="client" element={<ClientList />} />
             <Route path="profile" element={<Profile />} />
