@@ -2,19 +2,19 @@
 
 A modern, fully responsive Admin Panel Dashboard built with **React**, **Redux**, and **Tailwind CSS**, integrating dynamic data via provided **SMS Gateway APIs**.
 
----
+---------------------------------------------------------------------------------
 
 ## 🚀 Live Demo
 
 🔗 [Click to View Live]
 
----
+----------------------------------------------------------------------------------
 
 ## 📁 GitHub Repository
 
-🔗 [View Source Code on GitHub](https://github.com/sakib236160/sms-dashboard)
+🔗 https://github.com/sakib236160/sms-dashboard
 
----
+-----------------------------------------------------------------------------------
 
 ## 🎯 Project Objective
 
@@ -23,7 +23,7 @@ Develop a professional and responsive admin dashboard that:
 - Integrates real-time API data
 - Adapts seamlessly across **desktop**, **tablet**, and **mobile** devices
 
----
+------------------------------------------------------------------------------------
 
 ## 📦 Technologies Used
 
@@ -34,7 +34,7 @@ Develop a professional and responsive admin dashboard that:
 - React Router DOM
 - Framer Motion (for animation)
 
----
+------------------------------------------------------------------------------------
 
 ## 🧩 Features
 
@@ -46,7 +46,7 @@ Develop a professional and responsive admin dashboard that:
 ✅ Responsive design for all screen sizes  
 ✅ Smooth animations and UI transitions  
 
----
+------------------------------------------------------------------------------------
 
 ## 🔑 API Access
 
@@ -57,11 +57,7 @@ Develop a professional and responsive admin dashboard that:
 
 > Make sure to use the credentials to generate token and access protected routes using Axios with Bearer token authentication.
 
----
-
-## 📂 Project Structure
-
----
+-------------------------------------------------------------------------------------
 
 ## 📱 Responsiveness
 
@@ -69,7 +65,7 @@ Develop a professional and responsive admin dashboard that:
 ✅ Tablet — Adjusted layout & navigation  
 ✅ Mobile — Collapsible menu, optimized components
 
----
+--------------------------------------------------------------------------------------
 
 ## 🛠️ How to Run Locally
 

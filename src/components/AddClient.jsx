@@ -54,7 +54,7 @@ const AddClient = () => {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-xl mt-10"
+      className="w-full px-4 sm:px-6 lg:px-10 py-8 bg-white shadow-lg rounded-xl mt-10"
     >
       <div className="flex items-center space-x-3 mb-6">
         <FaUserPlus className="text-3xl text-blue-600" />
@@ -99,6 +99,7 @@ const AddClient = () => {
             />
           </div>
         </div>
+
         <div>
           <label className="block mb-1 text-gray-700">Balance</label>
           <input

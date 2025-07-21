@@ -1,14 +1,14 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProtectedRoute from './components/ProtectedRoute';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute";
 
-import Dashboard from './components/Dashboard';
-import Profile from './components/Profile';
-import Home from './components/Home';
-import Login from './components/Login';
-import Layout from './components/Layout/Layout';
-import ClientList from './components/ClientList';
-import ManageClient from './components/ManageClient';
-import AddClient from './components/AddClient';
+import Dashboard from "./components/Dashboard";
+import Profile from "./components/Profile";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import Layout from "./components/Layout/Layout";
+import ClientList from "./components/ClientList";
+import ManageClient from "./components/ManageClient";
+import AddClient from "./components/AddClient";
 
 export default function App() {
   return (
