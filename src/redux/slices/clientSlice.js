@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const BASE_URL = "/api";
+const BASE_URL = "http://52.74.26.144:8008";
 
 // Async thunk to fetch clients list
 export const fetchClients = createAsyncThunk(

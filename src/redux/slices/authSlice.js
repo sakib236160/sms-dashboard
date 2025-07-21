@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const BASE_URL = '/api';
+const BASE_URL = 'http://52.74.26.144:8008';
 
 const initialState = {
   token: localStorage.getItem('token') || null,
