@@ -23,7 +23,7 @@ const AddClient = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("/api/client/apiClient/", {
+      const res = await fetch("http://52.74.26.144:8008/client/apiClient/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
