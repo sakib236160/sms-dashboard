@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const API_URL = 'http://52.74.26.144:8008';
+const BASE_URL = '/api';
 
 const initialState = {
   token: localStorage.getItem('token') || null,
@@ -15,7 +15,7 @@ export const login = createAsyncThunk(
   'auth/login',
   async ({ username, password }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`${API_URL}/auth/login/`, {
+      const response = await axios.post(`${BASE_URL}/auth/login/`, {
         username,
         password,
       });

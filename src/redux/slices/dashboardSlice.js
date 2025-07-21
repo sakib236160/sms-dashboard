@@ -3,7 +3,7 @@ import axios from "axios";
 
 
 // Backend API base URL
-const BASE_URL = "http://52.74.26.144:8008";
+const BASE_URL = "/api";
 
 // Async thunk to fetch SMS info
 export const fetchSMSInfo = createAsyncThunk(
